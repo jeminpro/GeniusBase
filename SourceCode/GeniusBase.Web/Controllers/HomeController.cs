@@ -15,6 +15,11 @@ namespace GeniusBase.Web.Controllers
             return View();
         }
 
+        public IActionResult Default()
+        {
+            return View();
+        }
+
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";
