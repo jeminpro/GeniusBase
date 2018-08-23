@@ -53,7 +53,7 @@ namespace GeniusBase.Web
             {
                 routes.MapRoute(
                     name:"areaRoute", 
-                    template:"{area:exists}/{controller=Admin}/{action=Index}/{id?}");
+                    template:"{area:exists}/{controller=Dashboard}/{action=Index}/{id?}");
 
                 routes.MapRoute(
                     name: "default",
