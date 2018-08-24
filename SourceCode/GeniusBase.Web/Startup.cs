@@ -8,6 +8,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using GeniusBase.Core.Database;
+using Microsoft.EntityFrameworkCore;
+using GeniusBase.Core;
 
 namespace GeniusBase.Web
 {
@@ -30,8 +33,11 @@ namespace GeniusBase.Web
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddDbContext<GbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("GbDatabase")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddScoped<ITest, Test>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -5,38 +5,28 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using GeniusBase.Web.Models;
+using GeniusBase.Core;
 
 namespace GeniusBase.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ITest _test;
+
+        public HomeController(ITest test)
+        {
+            _test = test;
+        }
+
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult Default()
+        [Route("About")]
+        public JsonResult About()
         {
-            return View();
-        }
-
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
+            return Json(_test.TestMethod());
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
