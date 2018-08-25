@@ -8,10 +8,6 @@ namespace GeniusBase.Core.Database.Entity.Post
 {
     public class Article : BaseEntity
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Key]
-        public int ArticleId { get; set; }
-
         [Required]
         [StringLength(200)]
         public string Title { get; set; }
@@ -37,9 +33,9 @@ namespace GeniusBase.Core.Database.Entity.Post
 
         public DateTime ArchivedDate { get; set; }
 
-        public virtual ICollection<Tag> Tags { get; set; }
-
         [ForeignKey("CategoryId")]
         public virtual Category Category { get; set; }
+
+        public virtual ICollection<Tag> Tags { get; set; }
     }
 }

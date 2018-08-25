@@ -24,6 +24,8 @@ namespace GeniusBase.Core.Database
             modelBuilder.HasDefaultSchema(schema: DBGlobals.SchemaName_Post);
 
             modelBuilder.Entity<Article>().HasIndex(i => i.UrlIdentifier).IsUnique();
+            modelBuilder.Entity<Category>().HasIndex(i => i.CategoryIdentifier).IsUnique();
+            modelBuilder.Entity<Tag>().HasIndex(i => i.TagIdentifier).IsUnique();
             modelBuilder.Entity<ArticleHistory>();
             modelBuilder.Entity<ArticleTag>();
             modelBuilder.Entity<Category>();
@@ -52,10 +54,10 @@ namespace GeniusBase.Core.Database
             {
                 if (entry.State == EntityState.Added)
                 {
-                    ((BaseEntity)entry.Entity).Created = DateTime.UtcNow;
+                    ((BaseEntity)entry.Entity).CreatedOn = DateTime.Now;
                 }
 
-                ((BaseEntity)entry.Entity).Modified = DateTime.UtcNow;
+                ((BaseEntity)entry.Entity).ModifiedOn = DateTime.Now;
             }
         }
     }

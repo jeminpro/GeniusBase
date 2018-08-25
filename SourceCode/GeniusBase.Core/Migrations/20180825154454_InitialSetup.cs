@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace GeniusBase.Core.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class InitialSetup : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,18 +16,18 @@ namespace GeniusBase.Core.Migrations
                 schema: "post",
                 columns: table => new
                 {
-                    Created = table.Column<DateTime>(nullable: false),
-                    CreatedBy = table.Column<int>(nullable: false),
-                    Modified = table.Column<DateTime>(nullable: false),
-                    ModifiedBy = table.Column<int>(nullable: false),
-                    CategoryId = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    CreatedOn = table.Column<DateTime>(nullable: false),
+                    CreatedBy = table.Column<int>(nullable: false),
+                    ModifiedOn = table.Column<DateTime>(nullable: false),
+                    ModifiedBy = table.Column<int>(nullable: false),
                     CategoryName = table.Column<string>(maxLength: 30, nullable: false),
-                    CategoryShortName = table.Column<string>(maxLength: 30, nullable: false)
+                    CategoryIdentifier = table.Column<string>(maxLength: 30, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Category", x => x.CategoryId);
+                    table.PrimaryKey("PK_Category", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -35,12 +35,12 @@ namespace GeniusBase.Core.Migrations
                 schema: "post",
                 columns: table => new
                 {
-                    Created = table.Column<DateTime>(nullable: false),
-                    CreatedBy = table.Column<int>(nullable: false),
-                    Modified = table.Column<DateTime>(nullable: false),
-                    ModifiedBy = table.Column<int>(nullable: false),
-                    ArticleHistoryId = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    CreatedOn = table.Column<DateTime>(nullable: false),
+                    CreatedBy = table.Column<int>(nullable: false),
+                    ModifiedOn = table.Column<DateTime>(nullable: false),
+                    ModifiedBy = table.Column<int>(nullable: false),
                     ArticleId = table.Column<int>(nullable: false),
                     Title = table.Column<string>(maxLength: 200, nullable: false),
                     Content = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -49,13 +49,13 @@ namespace GeniusBase.Core.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ArticleHistory", x => x.ArticleHistoryId);
+                    table.PrimaryKey("PK_ArticleHistory", x => x.Id);
                     table.ForeignKey(
                         name: "FK_ArticleHistory_Category_CategoryId",
                         column: x => x.CategoryId,
                         principalSchema: "post",
                         principalTable: "Category",
-                        principalColumn: "CategoryId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -64,18 +64,18 @@ namespace GeniusBase.Core.Migrations
                 schema: "post",
                 columns: table => new
                 {
-                    Created = table.Column<DateTime>(nullable: false),
-                    CreatedBy = table.Column<int>(nullable: false),
-                    Modified = table.Column<DateTime>(nullable: false),
-                    ModifiedBy = table.Column<int>(nullable: false),
-                    ArticleTagId = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    CreatedOn = table.Column<DateTime>(nullable: false),
+                    CreatedBy = table.Column<int>(nullable: false),
+                    ModifiedOn = table.Column<DateTime>(nullable: false),
+                    ModifiedBy = table.Column<int>(nullable: false),
                     ArticleId = table.Column<int>(nullable: false),
                     TagId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ArticleTag", x => x.ArticleTagId);
+                    table.PrimaryKey("PK_ArticleTag", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -83,12 +83,12 @@ namespace GeniusBase.Core.Migrations
                 schema: "post",
                 columns: table => new
                 {
-                    Created = table.Column<DateTime>(nullable: false),
-                    CreatedBy = table.Column<int>(nullable: false),
-                    Modified = table.Column<DateTime>(nullable: false),
-                    ModifiedBy = table.Column<int>(nullable: false),
-                    ArticleId = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    CreatedOn = table.Column<DateTime>(nullable: false),
+                    CreatedBy = table.Column<int>(nullable: false),
+                    ModifiedOn = table.Column<DateTime>(nullable: false),
+                    ModifiedBy = table.Column<int>(nullable: false),
                     Title = table.Column<string>(maxLength: 200, nullable: false),
                     UrlIdentifier = table.Column<string>(maxLength: 200, nullable: false),
                     Content = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -102,20 +102,20 @@ namespace GeniusBase.Core.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Article", x => x.ArticleId);
+                    table.PrimaryKey("PK_Article", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Article_ArticleTag_ArticleTagId",
                         column: x => x.ArticleTagId,
                         principalSchema: "post",
                         principalTable: "ArticleTag",
-                        principalColumn: "ArticleTagId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Article_Category_CategoryId",
                         column: x => x.CategoryId,
                         principalSchema: "post",
                         principalTable: "Category",
-                        principalColumn: "CategoryId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -124,33 +124,33 @@ namespace GeniusBase.Core.Migrations
                 schema: "post",
                 columns: table => new
                 {
-                    Created = table.Column<DateTime>(nullable: false),
-                    CreatedBy = table.Column<int>(nullable: false),
-                    Modified = table.Column<DateTime>(nullable: false),
-                    ModifiedBy = table.Column<int>(nullable: false),
-                    TagId = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    CreatedOn = table.Column<DateTime>(nullable: false),
+                    CreatedBy = table.Column<int>(nullable: false),
+                    ModifiedOn = table.Column<DateTime>(nullable: false),
+                    ModifiedBy = table.Column<int>(nullable: false),
                     TagName = table.Column<string>(maxLength: 30, nullable: false),
-                    TagShortName = table.Column<string>(maxLength: 30, nullable: false),
+                    TagIdentifier = table.Column<string>(maxLength: 30, nullable: false),
                     ArticleHistoryId = table.Column<int>(nullable: true),
                     ArticleId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Tag", x => x.TagId);
+                    table.PrimaryKey("PK_Tag", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Tag_ArticleHistory_ArticleHistoryId",
                         column: x => x.ArticleHistoryId,
                         principalSchema: "post",
                         principalTable: "ArticleHistory",
-                        principalColumn: "ArticleHistoryId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Tag_Article_ArticleId",
                         column: x => x.ArticleId,
                         principalSchema: "post",
                         principalTable: "Article",
-                        principalColumn: "ArticleId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -192,6 +192,13 @@ namespace GeniusBase.Core.Migrations
                 column: "TagId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Category_CategoryIdentifier",
+                schema: "post",
+                table: "Category",
+                column: "CategoryIdentifier",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Tag_ArticleHistoryId",
                 schema: "post",
                 table: "Tag",
@@ -203,6 +210,13 @@ namespace GeniusBase.Core.Migrations
                 table: "Tag",
                 column: "ArticleId");
 
+            migrationBuilder.CreateIndex(
+                name: "IX_Tag_TagIdentifier",
+                schema: "post",
+                table: "Tag",
+                column: "TagIdentifier",
+                unique: true);
+
             migrationBuilder.AddForeignKey(
                 name: "FK_ArticleTag_Article_ArticleId",
                 schema: "post",
@@ -210,7 +224,7 @@ namespace GeniusBase.Core.Migrations
                 column: "ArticleId",
                 principalSchema: "post",
                 principalTable: "Article",
-                principalColumn: "ArticleId",
+                principalColumn: "Id",
                 onDelete: ReferentialAction.Cascade);
 
             migrationBuilder.AddForeignKey(
@@ -220,7 +234,7 @@ namespace GeniusBase.Core.Migrations
                 column: "TagId",
                 principalSchema: "post",
                 principalTable: "Tag",
-                principalColumn: "TagId",
+                principalColumn: "Id",
                 onDelete: ReferentialAction.Cascade);
         }
 

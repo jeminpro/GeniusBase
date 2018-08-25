@@ -8,10 +8,6 @@ namespace GeniusBase.Core.Database.Entity.Post
 {
     public class ArticleHistory : BaseEntity
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Key]
-        public int ArticleHistoryId { get; set; }
-
         [Required]
         public int ArticleId { get; set; }
 
@@ -26,10 +22,10 @@ namespace GeniusBase.Core.Database.Entity.Post
         public int CategoryId { get; set; }
 
         public bool IsDraft { get; set; }
-
-        public virtual ICollection<Tag> Tags { get; set; }
         
         [ForeignKey("CategoryId")]
         public virtual Category Category { get; set; }
+
+        public virtual ICollection<Tag> Tags { get; set; }
     }
 }

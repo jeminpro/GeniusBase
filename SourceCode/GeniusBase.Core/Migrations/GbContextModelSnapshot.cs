@@ -22,7 +22,7 @@ namespace GeniusBase.Core.Migrations
 
             modelBuilder.Entity("GeniusBase.Core.Database.Entity.Post.Article", b =>
                 {
-                    b.Property<int>("ArticleId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -35,17 +35,17 @@ namespace GeniusBase.Core.Migrations
                     b.Property<string>("Content")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("Created");
-
                     b.Property<int>("CreatedBy");
+
+                    b.Property<DateTime>("CreatedOn");
 
                     b.Property<DateTime>("FirstPublishedDate");
 
                     b.Property<bool>("IsDraft");
 
-                    b.Property<DateTime>("Modified");
-
                     b.Property<int>("ModifiedBy");
+
+                    b.Property<DateTime>("ModifiedOn");
 
                     b.Property<string>("PlainContent")
                         .HasColumnType("nvarchar(max)");
@@ -60,7 +60,7 @@ namespace GeniusBase.Core.Migrations
 
                     b.Property<int>("Views");
 
-                    b.HasKey("ArticleId");
+                    b.HasKey("Id");
 
                     b.HasIndex("ArticleTagId");
 
@@ -74,7 +74,7 @@ namespace GeniusBase.Core.Migrations
 
             modelBuilder.Entity("GeniusBase.Core.Database.Entity.Post.ArticleHistory", b =>
                 {
-                    b.Property<int>("ArticleHistoryId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -85,21 +85,21 @@ namespace GeniusBase.Core.Migrations
                     b.Property<string>("Content")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("Created");
-
                     b.Property<int>("CreatedBy");
+
+                    b.Property<DateTime>("CreatedOn");
 
                     b.Property<bool>("IsDraft");
 
-                    b.Property<DateTime>("Modified");
-
                     b.Property<int>("ModifiedBy");
+
+                    b.Property<DateTime>("ModifiedOn");
 
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(200);
 
-                    b.HasKey("ArticleHistoryId");
+                    b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
 
@@ -108,23 +108,23 @@ namespace GeniusBase.Core.Migrations
 
             modelBuilder.Entity("GeniusBase.Core.Database.Entity.Post.ArticleTag", b =>
                 {
-                    b.Property<int>("ArticleTagId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("ArticleId");
 
-                    b.Property<DateTime>("Created");
-
                     b.Property<int>("CreatedBy");
 
-                    b.Property<DateTime>("Modified");
+                    b.Property<DateTime>("CreatedOn");
 
                     b.Property<int>("ModifiedBy");
 
+                    b.Property<DateTime>("ModifiedOn");
+
                     b.Property<int>("TagId");
 
-                    b.HasKey("ArticleTagId");
+                    b.HasKey("Id");
 
                     b.HasIndex("ArticleId");
 
@@ -135,34 +135,37 @@ namespace GeniusBase.Core.Migrations
 
             modelBuilder.Entity("GeniusBase.Core.Database.Entity.Post.Category", b =>
                 {
-                    b.Property<int>("CategoryId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CategoryIdentifier")
+                        .IsRequired()
+                        .HasMaxLength(30);
 
                     b.Property<string>("CategoryName")
                         .IsRequired()
                         .HasMaxLength(30);
 
-                    b.Property<string>("CategoryShortName")
-                        .IsRequired()
-                        .HasMaxLength(30);
-
-                    b.Property<DateTime>("Created");
-
                     b.Property<int>("CreatedBy");
 
-                    b.Property<DateTime>("Modified");
+                    b.Property<DateTime>("CreatedOn");
 
                     b.Property<int>("ModifiedBy");
 
-                    b.HasKey("CategoryId");
+                    b.Property<DateTime>("ModifiedOn");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryIdentifier")
+                        .IsUnique();
 
                     b.ToTable("Category");
                 });
 
             modelBuilder.Entity("GeniusBase.Core.Database.Entity.Post.Tag", b =>
                 {
-                    b.Property<int>("TagId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -170,27 +173,30 @@ namespace GeniusBase.Core.Migrations
 
                     b.Property<int?>("ArticleId");
 
-                    b.Property<DateTime>("Created");
-
                     b.Property<int>("CreatedBy");
 
-                    b.Property<DateTime>("Modified");
+                    b.Property<DateTime>("CreatedOn");
 
                     b.Property<int>("ModifiedBy");
+
+                    b.Property<DateTime>("ModifiedOn");
+
+                    b.Property<string>("TagIdentifier")
+                        .IsRequired()
+                        .HasMaxLength(30);
 
                     b.Property<string>("TagName")
                         .IsRequired()
                         .HasMaxLength(30);
 
-                    b.Property<string>("TagShortName")
-                        .IsRequired()
-                        .HasMaxLength(30);
-
-                    b.HasKey("TagId");
+                    b.HasKey("Id");
 
                     b.HasIndex("ArticleHistoryId");
 
                     b.HasIndex("ArticleId");
+
+                    b.HasIndex("TagIdentifier")
+                        .IsUnique();
 
                     b.ToTable("Tag");
                 });
