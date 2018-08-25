@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using GeniusBase.Core.Database;
 using Microsoft.EntityFrameworkCore;
 using GeniusBase.Core;
+using GeniusBase.Core.Repository;
 
 namespace GeniusBase.Web
 {
@@ -37,7 +38,7 @@ namespace GeniusBase.Web
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            services.AddScoped<ITest, Test>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -25,7 +25,6 @@ namespace GeniusBase.Core.Database
 
             modelBuilder.Entity<Article>().HasIndex(i => i.UrlIdentifier).IsUnique();
             modelBuilder.Entity<Category>().HasIndex(i => i.CategoryIdentifier).IsUnique();
-            modelBuilder.Entity<Tag>().HasIndex(i => i.TagIdentifier).IsUnique();
             modelBuilder.Entity<ArticleHistory>();
             modelBuilder.Entity<ArticleTag>();
             modelBuilder.Entity<Category>();
@@ -48,16 +47,16 @@ namespace GeniusBase.Core.Database
 
         private void Audit()
         {
-            var entries = ChangeTracker.Entries().Where(x => x.Entity is BaseEntity && (x.State == EntityState.Added || x.State == EntityState.Modified));
+            var entries = ChangeTracker.Entries().Where(x => x.Entity is EntityBase && (x.State == EntityState.Added || x.State == EntityState.Modified));
 
             foreach (var entry in entries)
             {
                 if (entry.State == EntityState.Added)
                 {
-                    ((BaseEntity)entry.Entity).CreatedOn = DateTime.Now;
+                    ((EntityBase)entry.Entity).CreatedOn = DateTime.Now;
                 }
 
-                ((BaseEntity)entry.Entity).ModifiedOn = DateTime.Now;
+                ((EntityBase)entry.Entity).ModifiedOn = DateTime.Now;
             }
         }
     }

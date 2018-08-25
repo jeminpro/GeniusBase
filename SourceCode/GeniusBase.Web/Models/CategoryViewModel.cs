@@ -8,7 +8,7 @@ namespace GeniusBase.Web.Models
     public class CategoryViewModel
     {
         public string CategoryName { get; set; }
-        public string CategorySefName { get; set; }
+        public string CategoryIdentifier { get; set; }
         public int CategoryArticleCount { get; set; }
     }
 }

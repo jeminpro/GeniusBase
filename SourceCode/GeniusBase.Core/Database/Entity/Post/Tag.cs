@@ -6,14 +6,10 @@ using System.Text;
 
 namespace GeniusBase.Core.Database.Entity.Post
 {
-    public class Tag : BaseEntity
+    public class Tag : EntityBase
     {
         [Required]
         [StringLength(30)]
         public string TagName { get; set; }
-
-        [Required]
-        [StringLength(30)]
-        public string TagIdentifier { get; set; }
     }
 }

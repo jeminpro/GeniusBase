@@ -6,7 +6,7 @@ using System.Text;
 
 namespace GeniusBase.Core.Database.Entity
 {
-    public class BaseEntity
+    public class EntityBase
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]

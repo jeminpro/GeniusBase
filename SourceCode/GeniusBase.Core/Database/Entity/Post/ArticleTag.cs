@@ -6,7 +6,7 @@ using System.Text;
 
 namespace GeniusBase.Core.Database.Entity.Post
 {
-    public class ArticleTag : BaseEntity
+    public class ArticleTag : EntityBase
     {
         [Required]
         public int ArticleId { get; set; }
