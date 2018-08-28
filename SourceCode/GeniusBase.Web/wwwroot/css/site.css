@@ -1,37 +1,49 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
-for details on configuring this project to bundle and minify static web assets. */
-body {
-    padding-top: 50px;
-    padding-bottom: 20px;
-}
+﻿body {
+  /* Sidebar sizes when expanded and expanded */
+  /* Menu item*/
+  /* Submenu item*/
+  /* Separators */
+  /* Closed submenu icon */
+  /* Opened submenu icon */ }
+  body .admin #titlediv #titlewrap #title {
+    width: 100%; }
+  body .admin .ck-editor__editable {
+    min-height: 400px; }
+  body #sidebar-container {
+    min-height: 100vh;
+    background-color: #333;
+    padding: 0; }
+  body .sidebar-expanded {
+    width: 230px; }
+  body .sidebar-collapsed {
+    width: 60px; }
+  body #sidebar-container .list-group a {
+    height: 50px;
+    color: white; }
+  body #sidebar-container .list-group .sidebar-submenu a {
+    height: 45px;
+    padding-left: 30px; }
+  body .sidebar-submenu {
+    font-size: 0.9rem; }
+  body .sidebar-separator-title {
+    background-color: #333;
+    height: 35px; }
+  body .sidebar-separator {
+    background-color: #333;
+    height: 25px; }
+  body .logo-separator {
+    background-color: #333;
+    height: 60px; }
+  body #sidebar-container .list-group .list-group-item[aria-expanded="false"] .submenu-icon::after {
+    content: " \f0d7";
+    font-family: FontAwesome;
+    display: inline;
+    text-align: right;
+    padding-left: 10px; }
+  body #sidebar-container .list-group .list-group-item[aria-expanded="true"] .submenu-icon::after {
+    content: " \f0da";
+    font-family: FontAwesome;
+    display: inline;
+    text-align: right;
+    padding-left: 10px; }
 
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-/* Carousel */
-.carousel-caption p {
-    font-size: 20px;
-    line-height: 1.4;
-}
-
-/* Make .svg files in the carousel display properly in older browsers */
-.carousel-inner .item img[src$=".svg"] {
-    width: 100%;
-}
-
-/* QR code generator */
-#qrCode {
-    margin: 15px;
-}
-
-/* Hide/rearrange for smaller screens */
-@media screen and (max-width: 767px) {
-    /* Hide captions */
-    .carousel-caption {
-        display: none;
-    }
-}

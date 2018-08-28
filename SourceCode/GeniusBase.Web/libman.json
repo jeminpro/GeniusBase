@@ -21,7 +21,12 @@
     {
       "library": "jQuery.dotdotdot@3.2.2",
       "destination": "wwwroot/lib/jQuery.dotdotdot"
+    },
+    {
+      "library": "jquery.nicescroll@3.7.6",
+      "destination": "wwwroot/lib/nicescroll"
     }
+
 
   ]
 }
