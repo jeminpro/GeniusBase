@@ -21,7 +21,7 @@ html, body {
     font-family: 'Roboto', sans-serif;
     font-size: 100%;
     overflow-x: hidden;
-    background: url(../images/bg.jpg) no-repeat 0px 0px;
+    /*background: url(../images/bg.jpg) no-repeat 0px 0px;*/
     background-size: cover;
 }
 
@@ -70,52 +70,12 @@ body a:hover {
     height: 100%;
 }
 
-    .right-stat-bar ul {
-        list-style-type: none;
-        padding-left: 0;
-    }
-/*LEFT NAVIGATION ICON*/
-.dcjq-icon {
-    height: 17px;
-    width: 17px;
-    display: inline-block;
-    background: url(../images/nav-expand.png) no-repeat top;
-    border-radius: 3px;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    position: absolute;
-    right: 10px;
+.right-stat-bar ul {
+    list-style-type: none;
+    padding-left: 0;
 }
 
-.active .dcjq-icon {
-    background: url(../images/nav-expand.png) no-repeat bottom;
-    border-radius: 3px;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-}
 
-.right-side-accordion .dcjq-icon {
-    height: 17px;
-    width: 17px;
-    display: inline-block;
-    background: url(../images/acc-expand.png) no-repeat top;
-    border-radius: 3px;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    position: absolute;
-    right: 10px;
-}
-
-.right-side-accordion .active .dcjq-icon {
-    background: url(../images/acc-expand.png) no-repeat bottom;
-    border-radius: 3px;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-}
-
-.right-side-accordion li:nth-child(2) ul li .prog-row {
-    border: none;
-}
 /*---*/
 .nav-collapse.collapse {
     display: inline;
@@ -127,7 +87,7 @@ ul.sidebar-menu, ul.sidebar-menu li ul.sub {
 }
 
 ul.sidebar-menu {
-    padding-top: 80px;
+    padding-top: 40px;
 }
 
 #sidebar > ul > li > ul.sub {
@@ -241,12 +201,13 @@ ul.sidebar-menu li a {
 
 .footer {
     background: #d19a98;
-    padding: 20px;
+    padding: 5px;
 }
 
     .footer p {
         color: #fff;
         letter-spacing: 1px;
+        font-size:12px;
     }
 
         .footer p a {
@@ -288,7 +249,7 @@ ul.sidebar-menu li a {
     background: #8b5c7e;
     float: left;
     width: 180px;
-    height: 80px;
+    height: 40px;
     position: relative;
 }
 
@@ -296,7 +257,7 @@ a.logo {
     font-size: 32px;
     color: #fff;
     float: left;
-    margin: 20px 0 0 25px;
+    margin: -4px 0 0 25px;
     text-transform: uppercase;
 }
 
@@ -511,7 +472,7 @@ ul.top-menu {
 }
 
 .top-nav {
-    margin-top: 20px;
+    margin-top: 2px;
 }
 
     .top-nav img {
@@ -705,7 +666,7 @@ ul.top-menu {
 /*--sidebar toggle---*/
 .sidebar-toggle-box {
     float: left;
-    margin-top: 23px;
+    margin-top: 3px;
     margin-left: -15px;
     background: #8b5c7e;
     border-radius: 50%;
@@ -3000,6 +2961,13 @@ canvas.canvasjs-chart-canvas {
 div#graph10, div#graph11 {
     width: 100%;
 }
+
+.nav > li > a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+}
+
 /*-- responsive design --*/
 @media (max-width: 1440px) {
     .w3layouts-main {

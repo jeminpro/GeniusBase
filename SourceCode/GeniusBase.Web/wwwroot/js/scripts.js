@@ -99,8 +99,8 @@
             var sparkLine = function () {
                 $(".sparkline").each(function () {
                     var $data = $(this).data();
-                    ($data.type == 'pie') && $data.sliceColors && ($data.sliceColors = eval($data.sliceColors));
-                    ($data.type == 'bar') && $data.stackedBarColor && ($data.stackedBarColor = eval($data.stackedBarColor));
+                    ($data.type === 'pie') && $data.sliceColors && ($data.sliceColors = eval($data.sliceColors));
+                    ($data.type === 'bar') && $data.stackedBarColor && ($data.stackedBarColor = eval($data.stackedBarColor));
 
                     $data.valueSpots = {
                         '0:': $data.spotColor
