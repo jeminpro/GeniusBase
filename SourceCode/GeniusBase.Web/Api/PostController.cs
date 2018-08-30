@@ -9,10 +9,10 @@ using Microsoft.AspNetCore.Mvc;
 namespace GeniusBase.Web.Api
 {
     [Route("api/[controller]")]
-    public class PostApiController : Controller
+    public class PostController : Controller
     {
         // GET api/<controller>/5
-        [HttpGet("{id}")]
+        [HttpGet("GetArticle/{id}")]
         public string GetArticle(int id)
         {
             return "value";
