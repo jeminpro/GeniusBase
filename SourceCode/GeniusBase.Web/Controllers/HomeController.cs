@@ -6,24 +6,24 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using GeniusBase.Web.Models;
 using GeniusBase.Core;
-using GeniusBase.Core.Repository;
+using GeniusBase.Core.Services;
 
 namespace GeniusBase.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ICategoryRepository _categoryRepository;
+        private readonly IPostService _postService;
 
-        public HomeController(ICategoryRepository categoryRepository)
+        public HomeController(IPostService postService)
         {
-            _categoryRepository = categoryRepository;
+            _postService = postService;
         }
 
         public IActionResult Index()
         {
             var dashboardViewModel = new DashboardViewModel();
 
-            var categories = _categoryRepository.GetAll().ToList();
+            var categories = _postService.GetAllCategories();
 
             foreach (var cat in categories)
             {

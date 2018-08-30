@@ -30,8 +30,14 @@ namespace GeniusBase.Core.Database
             modelBuilder.Entity<Category>();
             modelBuilder.Entity<Tag>();
 
+
+            modelBuilder.Seed();
+
             base.OnModelCreating(modelBuilder);
+
         }
+
+
 
         public override int SaveChanges()
         {

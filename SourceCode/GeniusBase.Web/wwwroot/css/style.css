@@ -3752,3 +3752,8 @@ div#graph10, div#graph11 {
         padding: 0;
     }
 }
+
+
+.ck-editor__editable{
+    min-height:400px;
+}

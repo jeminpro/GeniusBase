@@ -12,6 +12,8 @@ using GeniusBase.Core.Database;
 using Microsoft.EntityFrameworkCore;
 using GeniusBase.Core;
 using GeniusBase.Core.Repository;
+using GeniusBase.Core.Services;
+using GeniusBase.Core.Database.Entity.Post;
 
 namespace GeniusBase.Web
 {
@@ -38,7 +40,20 @@ namespace GeniusBase.Web
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
+            //Base
+            services.AddScoped<DbContext, GbContext>();
+
+            //Repositories
+            services.AddScoped<IRepository<Article>, Repository<Article>>();
+            services.AddScoped<IRepository<Category>, Repository<Category>>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+            services.AddScoped<IArticleRepository, ArticleRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
+
+            //Services
+            services.AddScoped<IPostService, PostService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
