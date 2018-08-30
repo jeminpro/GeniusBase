@@ -1,0 +1,102 @@
+﻿$sidebarWidth: 80px;
+$footerHeight: 20px;
+
+body {
+    background: #fff;
+    color: #555;
+    overflow-x: hidden;
+}
+
+.sidebar {
+    height: 100%;
+    width: $sidebarWidth;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    padding-top: 20px;
+    background: #0e273b;
+    box-shadow: 2px 0px 8px #555;
+    text-align: center;
+
+    .logo {
+        height: 50px;
+    }
+
+    .navigation-link {
+        a {
+            padding: 20px 8px 6px 5px;
+            text-decoration: none;
+            font-size: 11px;
+            color: #fff;
+            display: block;
+
+            &:hover {
+                color: #aad8d4;
+            }
+
+            &.icon::before {
+                display: block;
+                font: normal normal normal 1px/1 FontAwesome;
+                font-size: 25px;
+            }
+        }
+    }
+
+    .logout {
+        position: fixed;
+        bottom: 0;
+        width: $sidebarWidth;
+        padding: 5px 0;
+        border-top: 2px #39466E;
+        color: #fff;
+        background: #39466E;
+        height: 30px;
+        font-size: 13px;
+        box-shadow: 0px 0px 3px #39466E;
+
+        &:hover {
+            cursor: pointer;
+            color: #ff863c;
+        }
+    }
+}
+
+.main {
+    margin-left: $sidebarWidth;
+    margin-bottom: $footerHeight;
+    padding: 5px 10px;
+}
+
+.footer {
+    margin-left: $sidebarWidth;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    overflow: none;
+    background-color: #fff;
+    height: $footerHeight;
+    border-top: 1px solid #ddd;
+    padding: 0px 5px 0 10px;
+    color: #777;
+    box-shadow: 0px 0px 3px #888;
+    font-size: 12px;
+}
+
+
+.ck-editor__editable {
+    min-height: 400px;
+}
+
+.gb {
+    .card-header {
+        background-color: #22b8cf;
+        color: #fff;
+        font-weight: 500;
+    }
+
+    .card-footer {
+        background-color: #f3fdff;
+    }
+}

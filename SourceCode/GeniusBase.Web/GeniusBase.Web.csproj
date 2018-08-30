@@ -9,6 +9,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Areas\Admin\Views\Shared\_LayoutExtracshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Shared\_LayoutExtracshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.1.2">
       <PrivateAssets>all</PrivateAssets>
