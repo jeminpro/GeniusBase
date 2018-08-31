@@ -34,11 +34,8 @@ namespace GeniusBase.Core.Database
             modelBuilder.Seed();
 
             base.OnModelCreating(modelBuilder);
-
         }
-
-
-
+        
         public override int SaveChanges()
         {
             Audit();

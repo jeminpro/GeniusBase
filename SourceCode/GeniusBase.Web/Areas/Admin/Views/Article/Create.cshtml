@@ -24,8 +24,7 @@
         <div class="form-group">
             <input type="text" class="form-control rounded-0" id="articleTitle" placeholder="Enter title here">
         </div>
-        <textarea name="content" id="editor">
-            &lt;p&gt;Here goes the initial content of the editor.&lt;/p&gt;
+        <textarea name="content" id="articleEditor" style="display: none;">
         </textarea>
     </div>
     <div class="col-md-3">
@@ -34,12 +33,12 @@
                 Publish
             </div>
             <div class="card-body">
-                <div class="btn btn-outline-dark btn-sm">Save Draft</div>
-                <div class="btn btn-outline-dark btn-sm pull-right">Preview</div>
+                <div class="btn btn-outline-dark btn-sm" id="saveAsDraft">Save Draft</div>
+                <div class="btn btn-outline-dark btn-sm pull-right" id="preview">Preview</div>
             </div>
             <div class="card-footer">
-                <div class="btn btn-link btn-sm text-danger">Move to trash</div>
-                <div class="btn btn-primary btn-sm pull-right">Publish</div>
+                <div class="btn btn-link btn-sm text-danger" id="moveToTrash">Move to trash</div>
+                <div class="btn btn-primary btn-sm pull-right" id="publish">Publish</div>
             </div>
         </div>
 
@@ -80,7 +79,11 @@
         </div>
     </div>
 </div>
-
+<script src="~/js/Module/CreateArticle.js"></script>
 <script>
-    ClassicEditor.create(document.querySelector('#editor'));
+    CreateArticle.init();
 </script>
+
+@*<script>
+    ClassicEditor.create(document.querySelector('#editor'));
+</script>*@
