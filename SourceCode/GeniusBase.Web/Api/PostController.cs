@@ -29,13 +29,13 @@ namespace GeniusBase.Web.Api
             return "value";
         }
 
-        [HttpPost]
+        [HttpPost("SaveArticle")]
         public void SaveArticle([FromBody]ArticleDal articleDal)
         {
             if (articleDal.ArticleId.HasValue)
-                _postService.AddArticle(articleDal);
+                _postService.UpdateArticle(articleDal); 
             else
-                _postService.UpdateArticle(articleDal);
+                _postService.AddArticle(articleDal);
         }
 
         // PUT api/<controller>/5

@@ -10,7 +10,6 @@ namespace GeniusBase.Core.Services.ServiceModels
         public string Title { get; set; }
         public string Content { get; set; }
         public int CategoryId { get; set; }
-        public List<int> TagItems { get; set; }
         public bool IsDraft { get; set; }
         public int UserId { get; set; }
         public string UrlIdentifier { get; set; }

@@ -29,9 +29,9 @@ namespace GeniusBase.Core.Database.Entity.Post
 
         public int Views { get; set; }
         
-        public DateTime FirstPublishedDate { get; set; }
+        public DateTime? FirstPublishedDate { get; set; }
 
-        public DateTime ArchivedDate { get; set; }
+        public DateTime? ArchivedDate { get; set; }
 
         [ForeignKey("CategoryId")]
         public virtual Category Category { get; set; }

@@ -45,7 +45,7 @@ namespace GeniusBase.Core.Services
                 PlainContent = articleDal.Content,
                 CategoryId = articleDal.CategoryId,               
                 IsDraft = articleDal.IsDraft,
-                UrlIdentifier = articleDal.Title
+                UrlIdentifier = articleDal.UrlIdentifier
             };
             
             if (!articleDal.IsDraft)
@@ -67,7 +67,7 @@ namespace GeniusBase.Core.Services
             article.PlainContent = articleDal.Content;
             article.CategoryId = articleDal.CategoryId;
             article.IsDraft = articleDal.IsDraft;
-            article.UrlIdentifier = articleDal.Title;
+            article.UrlIdentifier = articleDal.UrlIdentifier;
 
             if (article.FirstPublishedDate == null && !articleDal.IsDraft)
             {
