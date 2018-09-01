@@ -11,7 +11,7 @@ namespace GeniusBase.Core.Services
     {
         IEnumerable<Category> GetAllCategories();
         int AddArticle(ArticleDal articleDal);
-        void UpdateArticle(ArticleDal articleDal);
+        void UpdateArticle(int articleId, ArticleDal articleDal);
     }
 
     public class PostService: IPostService
@@ -55,12 +55,14 @@ namespace GeniusBase.Core.Services
             
             _unitOfWork.Articles.Add(article);
             
-            return _unitOfWork.SaveChanges();
+            _unitOfWork.SaveChanges();
+
+            return article.Id;
         }
 
-        public void UpdateArticle(ArticleDal articleDal)
+        public void UpdateArticle(int articleId, ArticleDal articleDal)
         {
-            var article = _unitOfWork.Articles.Get(articleDal.ArticleId.Value);
+            var article = _unitOfWork.Articles.Get(articleId);
 
             article.Title = articleDal.Title;
             article.Content = articleDal.Content;

@@ -21,7 +21,6 @@ namespace GeniusBase.Web.Api
 
         }
 
-        // GET api/<controller>/5
         [HttpGet("GetArticle/{id}")]
         public string GetArticle(int id)
         {
@@ -29,16 +28,20 @@ namespace GeniusBase.Web.Api
             return "value";
         }
 
-        [HttpPost("SaveArticle")]
-        public void SaveArticle([FromBody]ArticleDal articleDal)
+        [HttpPost("AddArticle")]
+        public IActionResult AddArticle([FromBody]ArticleDal articleDal)
         {
-            if (articleDal.ArticleId.HasValue)
-                _postService.UpdateArticle(articleDal); 
-            else
-                _postService.AddArticle(articleDal);
+            var articleId = _postService.AddArticle(articleDal);
+            return Ok(articleId);
         }
 
-        // PUT api/<controller>/5
+        [HttpPost("UpdateArticle/{articleId}")]
+        public IActionResult UpdateArticle(int articleId, [FromBody]ArticleDal articleDal)
+        {
+            _postService.UpdateArticle(articleId, articleDal);
+            return Ok();
+        }
+
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]string value)
         {

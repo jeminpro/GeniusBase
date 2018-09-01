@@ -67,10 +67,12 @@
   min-height: 400px; }
 
 .gb .card-header {
-  background-color: #22b8cf;
+  background-color: #0e273b;
   color: #fff;
-  font-weight: 500; }
+  font-weight: 400;
+  padding: 8px;
+  border-radius: 0px; }
 
 .gb .card-footer {
-  background-color: #f3fdff; }
+  background-color: #fff; }
 

@@ -47,16 +47,7 @@
                 Category
             </div>
             <div class="card-body">
-                <div class="btn btn-link btn-sm text-primary">+ Add New Category</div>
-
-
-                <select class="form-control" id="exampleFormControlSelect1">
-                    <option value="1">Uncategorized</option>
-                    <option value="2">C#</option>
-                    <option value="3">Java Script</option>
-                </select>
-
-
+                @await Html.PartialAsync("/Areas/Admin/Views/Shared/Partial/_Category.cshtml")
             </div>
         </div>
 
