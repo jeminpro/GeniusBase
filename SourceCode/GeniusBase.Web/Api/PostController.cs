@@ -21,25 +21,25 @@ namespace GeniusBase.Web.Api
 
         }
 
-        [HttpGet("GetArticle/{id}")]
-        public string GetArticle(int id)
-        {
-            _postService.GetAllCategories();
-            return "value";
-        }
-
         [HttpPost("AddArticle")]
         public IActionResult AddArticle([FromBody]ArticleDal articleDal)
         {
             var articleId = _postService.AddArticle(articleDal);
             return Ok(articleId);
         }
-
+        
         [HttpPost("UpdateArticle/{articleId}")]
         public IActionResult UpdateArticle(int articleId, [FromBody]ArticleDal articleDal)
         {
             _postService.UpdateArticle(articleId, articleDal);
             return Ok();
+        }
+
+
+        [HttpGet("GetAllCategories")]
+        public IActionResult GetAllCategories()
+        {
+            return Ok(_postService.GetAllCategories());
         }
 
         [HttpPut("{id}")]
